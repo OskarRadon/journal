@@ -5,11 +5,19 @@
 
 var Entry = require('./../js/journal.js').Entry;
 
-// get values from input fields on submit
+// clear inputs
+function resetFields() {
+  $("input.title").val("");
+  $("textarea.text").val("");
+}
+
 
 $(function() {
-
+// get values from input fields on submit
   $('form.journalInput').submit(function(event) {
+
+    event.preventDefault();
+
     var title = $('input.title').val();
     var text = $('textarea.text').val();
     var newEntry = new Entry(title, text);
@@ -18,6 +26,7 @@ $(function() {
     // append entry to #entries div
     $('div#entries').prepend('<article><h3>' + title + '</h3><p>' + text + '</p><p>' + EntryLength + ' characters</p></article>');
 
-    event.preventDefault();
+    resetFields();
+
   });
 });
