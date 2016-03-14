@@ -1,15 +1,17 @@
 
 // business logic
 
-// entry prototype
+// entry constructor
 
-function entry (title, text) {
+function Entry (title, text) {
   this.title = title;
   this.text = text;
 }
 
 // method of counting characters in entry
 
-entry.countCharacters = function(text) {
+Entry.prototype.countCharacters = function(text) {
   return text.length();
 }
+
+exports.Entry = Entry;
