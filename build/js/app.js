@@ -1,1 +1,72 @@
-!function t(r,e,n){function i(u,a){if(!e[u]){if(!r[u]){var c="function"==typeof require&&require;if(!a&&c)return c(u,!0);if(o)return o(u,!0);var f=new Error("Cannot find module '"+u+"'");throw f.code="MODULE_NOT_FOUND",f}var l=e[u]={exports:{}};r[u][0].call(l.exports,function(t){var e=r[u][1][t];return i(e?e:t)},l,l.exports,t,r,e,n)}return e[u].exports}for(var o="function"==typeof require&&require,u=0;u<n.length;u++)i(n[u]);return i}({1:[function(t,r,e){function n(t,r){this.title=t,this.text=r}n.prototype.countCharacters=function(){return this.text.length},e.Entry=n},{}],2:[function(t,r,e){function n(){$("input.title").val(""),$("textarea.text").val("")}function i(t,r){this.title=t,this.text=r}var i=t("./../js/journal-interface.js").Entry;$(function(){$("form.journalInput").submit(function(t){t.preventDefault();var r=$("input.title").val(),e=$("textarea.text").val(),o=new i(r,e),u=o.countCharacters();$("div#entries").prepend("<article><h3>"+r+"</h3><p>"+e+"</p><p>"+u+" characters</p></article>"),n()})}),i.prototype.countCharacters=function(){return this.text.length},e.Entry=i},{"./../js/journal-interface.js":1}]},{},[2]);
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+// business logic
+
+// entry constructor
+
+function Entry (title, text) {
+  this.title = title;
+  this.text = text;
+}
+
+// method of counting characters in entry
+
+Entry.prototype.countCharacters = function() {
+  return this.text.length;
+}
+
+exports.Entry = Entry;
+
+},{}],2:[function(require,module,exports){
+
+// interface logic
+
+//requires
+
+var Entry = require('./../js/journal-interface.js').Entry;
+
+// clear inputs
+function resetFields() {
+  $("input.title").val("");
+  $("textarea.text").val("");
+}
+
+
+$(function() {
+// get values from input fields on submit
+  $('form.journalInput').submit(function(event) {
+
+    event.preventDefault();
+
+    var title = $('input.title').val();
+    var text = $('textarea.text').val();
+    var newEntry = new Entry(title, text);
+    // run char counting method
+    var EntryLength = newEntry.countCharacters();
+    // append entry to #entries div
+    $('div#entries').prepend('<article><h3>' + title + '</h3><p>' + text + '</p><p>' + EntryLength + ' characters</p></article>');
+
+    resetFields();
+
+  });
+});
+
+
+// business logic
+
+// entry constructor
+
+function Entry (title, text) {
+  this.title = title;
+  this.text = text;
+}
+
+// method of counting characters in entry
+
+Entry.prototype.countCharacters = function() {
+  return this.text.length;
+}
+
+exports.Entry = Entry;
+
+},{"./../js/journal-interface.js":1}]},{},[2]);
