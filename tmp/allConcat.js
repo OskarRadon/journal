@@ -3,7 +3,7 @@
 
 //requires
 
-var Entry = require('./../js/journal.js').Entry;
+var Entry = require('./../js/journal-interface.js').Entry;
 
 // clear inputs
 function resetFields() {

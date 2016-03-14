@@ -23,7 +23,7 @@ exports.Entry = Entry;
 
 //requires
 
-var Entry = require('./../js/journal.js').Entry;
+var Entry = require('./../js/journal-interface.js').Entry;
 
 // clear inputs
 function resetFields() {
@@ -69,4 +69,4 @@ Entry.prototype.countCharacters = function() {
 
 exports.Entry = Entry;
 
-},{"./../js/journal.js":1}]},{},[2]);
+},{"./../js/journal-interface.js":1}]},{},[2]);
