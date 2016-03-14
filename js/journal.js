@@ -10,8 +10,8 @@ function Entry (title, text) {
 
 // method of counting characters in entry
 
-Entry.prototype.countCharacters = function(text) {
-  return text.length();
+Entry.prototype.countCharacters = function() {
+  return this.text.length();
 }
 
 exports.Entry = Entry;
